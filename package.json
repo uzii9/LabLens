@@ -1,0 +1,29 @@
+{
+  "name": "ahs-lab-report-analyzer",
+  "version": "1.0.0",
+  "description": "Professional-grade lab report analyzer for Alberta Health Services",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "client:dev": "cd client && npm run dev",
+    "client:build": "cd client && npm run build",
+    "client:preview": "cd client && npm run preview",
+    "server:dev": "cd server && npm run dev",
+    "server:start": "cd server && npm start",
+    "install:all": "npm install && cd client && npm install && cd ../server && npm install",
+    "build": "npm run client:build",
+    "start": "npm run server:start"
+  },
+  "keywords": [
+    "healthcare",
+    "lab-reports",
+    "ocr",
+    "ahs",
+    "medical-analysis"
+  ],
+  "author": "AHS Development Team",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+} 

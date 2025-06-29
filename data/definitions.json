@@ -1,0 +1,409 @@
+{
+  "labPanels": {
+    "cbc_differential": {
+      "name": "CBC and Differential",
+      "description": "Complete Blood Count with differential white blood cell count",
+      "tests": {
+        "wbc": {
+          "name": "White Blood Cells",
+          "unit": "×10⁹/L",
+          "referenceRange": {
+            "min": 4.0,
+            "max": 11.0
+          },
+          "explanation": "White blood cells help fight infections. Low levels may indicate immune system problems, while high levels may suggest infection or inflammation.",
+          "category": "immune"
+        },
+        "rbc": {
+          "name": "Red Blood Cells",
+          "unit": "×10¹²/L",
+          "referenceRange": {
+            "male": { "min": 4.5, "max": 5.9 },
+            "female": { "min": 4.0, "max": 5.2 }
+          },
+          "explanation": "Red blood cells carry oxygen throughout your body. Low levels may indicate anemia, while high levels may suggest dehydration or lung disease.",
+          "category": "oxygen_transport"
+        },
+        "hemoglobin": {
+          "name": "Hemoglobin",
+          "unit": "g/L",
+          "referenceRange": {
+            "male": { "min": 140, "max": 175 },
+            "female": { "min": 120, "max": 155 }
+          },
+          "explanation": "Hemoglobin is the protein in red blood cells that carries oxygen. Low levels indicate anemia, which can cause fatigue and weakness.",
+          "category": "oxygen_transport"
+        },
+        "hematocrit": {
+          "name": "Hematocrit",
+          "unit": "L/L",
+          "referenceRange": {
+            "min": 0.40,
+            "max": 0.52
+          },
+          "explanation": "Hematocrit measures the fraction of blood volume made up of red blood cells. It helps diagnose anemia and polycythemia. Normal range for adults is 0.40-0.52 L/L.",
+          "category": "oxygen_transport"
+        },
+        "platelets": {
+          "name": "Platelets",
+          "unit": "×10⁹/L",
+          "referenceRange": {
+            "min": 150,
+            "max": 400
+          },
+          "explanation": "Platelets help your blood clot. Low levels increase bleeding risk, while high levels may increase clotting risk.",
+          "category": "coagulation"
+        },
+        "neutrophils": {
+          "name": "Neutrophils",
+          "unit": "%",
+          "referenceRange": {
+            "min": 40,
+            "max": 74
+          },
+          "explanation": "Neutrophils are the most common type of white blood cell and fight bacterial infections. High levels often indicate bacterial infection.",
+          "category": "immune"
+        },
+        "lymphocytes": {
+          "name": "Lymphocytes",
+          "unit": "%",
+          "referenceRange": {
+            "min": 19,
+            "max": 48
+          },
+          "explanation": "Lymphocytes fight viral infections and include T-cells and B-cells. High levels may indicate viral infection or certain blood cancers.",
+          "category": "immune"
+        }
+      }
+    },
+    "vitamin_b12": {
+      "name": "Vitamin B12",
+      "description": "Essential vitamin for nerve function and red blood cell formation",
+      "tests": {
+        "b12": {
+          "name": "Vitamin B12",
+          "unit": "pmol/L",
+          "referenceRange": {
+            "min": 138,
+            "max": 652
+          },
+          "explanation": "Vitamin B12 is essential for nerve function and making red blood cells. Low levels can cause anemia, fatigue, and neurological problems.",
+          "category": "vitamins"
+        }
+      }
+    },
+    "iron_panel": {
+      "name": "Iron Studies",
+      "description": "Tests to assess iron status and metabolism",
+      "tests": {
+        "iron": {
+          "name": "Serum Iron",
+          "unit": "μmol/L",
+          "referenceRange": {
+            "male": { "min": 14, "max": 32 },
+            "female": { "min": 11, "max": 29 }
+          },
+          "explanation": "Measures the amount of iron in your blood. Low levels may indicate iron deficiency, while high levels may suggest iron overload.",
+          "category": "iron_metabolism"
+        },
+        "tibc": {
+          "name": "Total Iron Binding Capacity",
+          "unit": "μmol/L",
+          "referenceRange": {
+            "min": 45,
+            "max": 72
+          },
+          "explanation": "Measures your blood's capacity to bind iron. High levels often indicate iron deficiency.",
+          "category": "iron_metabolism"
+        },
+        "iron_saturation": {
+          "name": "Iron Saturation Index",
+          "unit": "%",
+          "referenceRange": {
+            "min": 20,
+            "max": 50
+          },
+          "explanation": "Shows what percentage of your iron-binding capacity is being used. Low levels suggest iron deficiency.",
+          "category": "iron_metabolism"
+        },
+        "ferritin": {
+          "name": "Ferritin",
+          "unit": "μg/L",
+          "referenceRange": {
+            "male": { "min": 30, "max": 400 },
+            "female": { "min": 15, "max": 150 }
+          },
+          "explanation": "Ferritin stores iron in your body. Low levels indicate iron deficiency, while high levels may suggest inflammation or iron overload.",
+          "category": "iron_metabolism"
+        }
+      }
+    },
+    "urinalysis": {
+      "name": "Urinalysis",
+      "description": "Comprehensive urine analysis for kidney function and overall health",
+      "tests": {
+        "color": {
+          "name": "Urine Color",
+          "unit": "visual",
+          "referenceRange": "Yellow/Straw",
+          "explanation": "Normal urine should be yellow to straw-colored. Dark urine may indicate dehydration, while very pale urine may suggest overhydration.",
+          "category": "physical_properties"
+        },
+        "clarity": {
+          "name": "Urine Clarity",
+          "unit": "visual",
+          "referenceRange": "Clear",
+          "explanation": "Normal urine should be clear. Cloudy urine may indicate infection, kidney stones, or other urinary tract problems.",
+          "category": "physical_properties"
+        },
+        "ph": {
+          "name": "Urine pH",
+          "unit": "pH",
+          "referenceRange": {
+            "min": 4.6,
+            "max": 8.0
+          },
+          "explanation": "Measures how acidic or basic your urine is. Abnormal pH may indicate kidney problems, urinary tract infections, or metabolic disorders.",
+          "category": "chemical_properties"
+        },
+        "glucose": {
+          "name": "Urine Glucose",
+          "unit": "qualitative",
+          "referenceRange": "Negative",
+          "explanation": "Glucose in urine may indicate diabetes or kidney problems. Normal urine should not contain detectable glucose.",
+          "category": "metabolic"
+        },
+        "protein": {
+          "name": "Urine Protein",
+          "unit": "qualitative",
+          "referenceRange": "Negative/Trace",
+          "explanation": "Protein in urine may indicate kidney damage or disease. Small amounts may be normal after exercise.",
+          "category": "kidney_function"
+        },
+        "nitrites": {
+          "name": "Nitrites",
+          "unit": "qualitative",
+          "referenceRange": "Negative",
+          "explanation": "Positive nitrites often indicate bacterial urinary tract infection, particularly from gram-negative bacteria.",
+          "category": "infection_markers"
+        },
+        "leukocytes": {
+          "name": "Leukocyte Esterase",
+          "unit": "qualitative",
+          "referenceRange": "Negative",
+          "explanation": "Positive leukocyte esterase indicates white blood cells in urine, often suggesting urinary tract infection or inflammation.",
+          "category": "infection_markers"
+        },
+        "ketones": {
+          "name": "Ketones",
+          "unit": "qualitative",
+          "referenceRange": "Negative",
+          "explanation": "Ketones in urine may indicate diabetic ketoacidosis, starvation, or low-carbohydrate diets.",
+          "category": "metabolic"
+        }
+      }
+    },
+    "lipid_panel": {
+      "name": "Lipid Panel",
+      "description": "Tests to assess cardiovascular disease risk",
+      "tests": {
+        "total_cholesterol": {
+          "name": "Total Cholesterol",
+          "unit": "mmol/L",
+          "referenceRange": {
+            "min": 0,
+            "max": 5.2,
+            "optimal": 5.2
+          },
+          "explanation": "Total cholesterol measures all cholesterol in your blood. High levels increase risk of heart disease and stroke.",
+          "category": "cardiovascular"
+        },
+        "hdl": {
+          "name": "HDL Cholesterol",
+          "unit": "mmol/L",
+          "referenceRange": {
+            "male": { "min": 1.0 },
+            "female": { "min": 1.3 }
+          },
+          "explanation": "HDL is 'good' cholesterol that helps remove other cholesterol from arteries. Higher levels are better for heart health.",
+          "category": "cardiovascular"
+        },
+        "ldl": {
+          "name": "LDL Cholesterol",
+          "unit": "mmol/L",
+          "referenceRange": {
+            "max": 3.5,
+            "optimal": 2.0
+          },
+          "explanation": "LDL is 'bad' cholesterol that can build up in arteries. Lower levels reduce risk of heart disease and stroke.",
+          "category": "cardiovascular"
+        },
+        "triglycerides": {
+          "name": "Triglycerides",
+          "unit": "mmol/L",
+          "referenceRange": {
+            "max": 1.7
+          },
+          "explanation": "Triglycerides are a type of fat in blood. High levels increase risk of heart disease and may indicate metabolic syndrome.",
+          "category": "cardiovascular"
+        }
+      }
+    },
+    "liver_function": {
+      "name": "Liver Function Tests",
+      "description": "Tests to assess liver health and function",
+      "tests": {
+        "alt": {
+          "name": "ALT (Alanine Aminotransferase)",
+          "unit": "U/L",
+          "referenceRange": {
+            "male": { "min": 10, "max": 40 },
+            "female": { "min": 7, "max": 35 }
+          },
+          "explanation": "ALT is an enzyme mainly found in the liver. High levels may indicate liver damage or disease.",
+          "category": "liver_enzymes"
+        },
+        "bilirubin_total": {
+          "name": "Total Bilirubin",
+          "unit": "μmol/L",
+          "referenceRange": {
+            "min": 3,
+            "max": 20
+          },
+          "explanation": "Bilirubin is a waste product from breaking down red blood cells. High levels may indicate liver problems or blood disorders.",
+          "category": "liver_function"
+        },
+        "ggt": {
+          "name": "GGT (Gamma-Glutamyl Transferase)",
+          "unit": "U/L",
+          "referenceRange": {
+            "male": { "min": 8, "max": 61 },
+            "female": { "min": 5, "max": 36 }
+          },
+          "explanation": "GGT is an enzyme found in liver and bile ducts. High levels may indicate liver disease or bile duct problems.",
+          "category": "liver_enzymes"
+        }
+      }
+    },
+    "thyroid_function": {
+      "name": "Thyroid Function Tests",
+      "description": "Tests to assess thyroid gland function",
+      "tests": {
+        "tsh": {
+          "name": "TSH (Thyroid Stimulating Hormone)",
+          "unit": "mU/L",
+          "referenceRange": {
+            "min": 0.27,
+            "max": 4.2
+          },
+          "explanation": "TSH controls thyroid hormone production. High levels may indicate underactive thyroid (hypothyroidism), while low levels may indicate overactive thyroid (hyperthyroidism).",
+          "category": "thyroid"
+        },
+        "free_t4": {
+          "name": "Free T4 (Thyroxine)",
+          "unit": "pmol/L",
+          "referenceRange": {
+            "min": 12,
+            "max": 22
+          },
+          "explanation": "Free T4 is the active form of thyroid hormone. Low levels may indicate hypothyroidism, while high levels may indicate hyperthyroidism.",
+          "category": "thyroid"
+        }
+      }
+    },
+    "electrolytes_renal": {
+      "name": "Electrolytes and Renal Function",
+      "description": "Tests for kidney function and electrolyte balance",
+      "tests": {
+        "sodium": {
+          "name": "Sodium",
+          "unit": "mmol/L",
+          "referenceRange": {
+            "min": 136,
+            "max": 145
+          },
+          "explanation": "Sodium helps regulate fluid balance and blood pressure. Abnormal levels may indicate kidney problems, dehydration, or heart failure.",
+          "category": "electrolytes"
+        },
+        "potassium": {
+          "name": "Potassium",
+          "unit": "mmol/L",
+          "referenceRange": {
+            "min": 3.5,
+            "max": 5.1
+          },
+          "explanation": "Potassium is essential for heart and muscle function. Abnormal levels can cause dangerous heart rhythm problems.",
+          "category": "electrolytes"
+        },
+        "creatinine": {
+          "name": "Creatinine",
+          "unit": "μmol/L",
+          "referenceRange": {
+            "male": { "min": 62, "max": 106 },
+            "female": { "min": 53, "max": 88 }
+          },
+          "explanation": "Creatinine is a waste product filtered by kidneys. High levels may indicate kidney disease or reduced kidney function.",
+          "category": "kidney_function"
+        },
+        "egfr": {
+          "name": "eGFR (Estimated Glomerular Filtration Rate)",
+          "unit": "mL/min/1.73m²",
+          "referenceRange": {
+            "min": 90
+          },
+          "explanation": "eGFR estimates how well your kidneys filter waste. Values below 60 may indicate chronic kidney disease.",
+          "category": "kidney_function"
+        },
+        "urate": {
+          "name": "Uric Acid (Urate)",
+          "unit": "μmol/L",
+          "referenceRange": {
+            "male": { "min": 202, "max": 416 },
+            "female": { "min": 143, "max": 339 }
+          },
+          "explanation": "Uric acid is a waste product. High levels may cause gout or indicate kidney problems.",
+          "category": "metabolic"
+        }
+      }
+    },
+    "diabetes": {
+      "name": "Diabetes Monitoring",
+      "description": "Tests for diabetes diagnosis and monitoring",
+      "tests": {
+        "hba1c": {
+          "name": "Hemoglobin A1c",
+          "unit": "%",
+          "referenceRange": {
+            "normal": { "max": 6.0 },
+            "prediabetes": { "min": 6.1, "max": 6.4 },
+            "diabetes": { "min": 6.5 }
+          },
+          "explanation": "HbA1c shows average blood sugar over 2-3 months. Values 6.5% or higher indicate diabetes, while 6.1-6.4% indicate prediabetes.",
+          "category": "diabetes"
+        }
+      }
+    }
+  },
+  "flagLevels": {
+    "normal": {
+      "color": "green",
+      "label": "Normal",
+      "description": "Result is within normal reference range"
+    },
+    "borderline": {
+      "color": "yellow", 
+      "label": "Borderline",
+      "description": "Result is slightly outside normal range but not significantly abnormal"
+    },
+    "abnormal": {
+      "color": "red",
+      "label": "Abnormal", 
+      "description": "Result is significantly outside normal reference range"
+    },
+    "critical": {
+      "color": "red",
+      "label": "Critical",
+      "description": "Result requires immediate medical attention"
+    }
+  }
+} 
