@@ -92,7 +92,7 @@ if (process.env.NODE_ENV === 'production') {
   // Development welcome message
   app.get('/', (req, res) => {
     res.json({
-      message: 'AHS Lab Report Analyzer API',
+      message: 'LabLens API - AHS Lab Report Analyzer',
       version: '1.0.0',
       environment: 'development',
       endpoints: {
@@ -171,7 +171,7 @@ process.on('SIGINT', () => {
 
 // Start server
 const server = app.listen(PORT, () => {
-  console.log(`🚀 AHS Lab Report Analyzer API server running on port ${PORT}`)
+  console.log(`🚀 LabLens API server running on port ${PORT}`)
   console.log(`📊 Environment: ${process.env.NODE_ENV || 'development'}`)
   console.log(`🔗 API Base URL: http://localhost:${PORT}/api`)
   

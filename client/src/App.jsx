@@ -37,59 +37,69 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50/30 to-indigo-50/20">
       <Header />
       
-      <main className="container mx-auto px-4 py-8 max-w-6xl">
+      <main className="container mx-auto px-4 py-12 max-w-7xl">
         <div className="animate-fade-in">
-          {/* Upload Section */}
-          {!labResults && !isProcessing && (
-            <div className="mb-8">
-              <div className="text-center mb-8">
-                <h1 className="text-3xl font-bold text-ahs-blue mb-4">
-                  AHS Lab Report Analyzer
-                </h1>
-                <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                  Upload your Alberta Health Services lab report PDF to get a comprehensive analysis 
-                  with easy-to-understand explanations of your test results.
-                </p>
-              </div>
-              
-              <FileUpload onFileUpload={handleFileUpload} />
-              
-              {error && (
-                <div className="mt-6">
-                  <ErrorMessage message={error} onDismiss={() => setError(null)} />
+          {/* Hero Section */}
+          {!labResults && (
+            <>
+              {!isProcessing && (
+                <div className="text-center mb-16 animate-fade-in-up">
+                  <div className="max-w-4xl mx-auto">
+                    <h1 className="heading-primary mb-6">
+                      LabLens
+                    </h1>
+                    <p className="text-body-large mb-8 max-w-3xl mx-auto">
+                      Upload your Alberta Health Services lab report PDF to receive a comprehensive, 
+                      easy-to-understand analysis of your test results with personalized health insights.
+                    </p>
+                    
+                    {/* Trust Indicators */}
+                    <div className="flex justify-center items-center space-x-8 mb-12 animate-slide-up-delayed">
+                      <div className="flex items-center space-x-2 text-gray-600">
+                        <div className="w-2 h-2 bg-medical-green rounded-full animate-bounce-gentle"></div>
+                        <span className="text-sm font-medium">Privacy Protected</span>
+                      </div>
+                      <div className="flex items-center space-x-2 text-gray-600">
+                        <div className="w-2 h-2 bg-ahs-blue rounded-full animate-bounce-gentle" style={{animationDelay: '0.2s'}}></div>
+                        <span className="text-sm font-medium">AHS Compatible</span>
+                      </div>
+                      <div className="flex items-center space-x-2 text-gray-600">
+                        <div className="w-2 h-2 bg-medical-yellow rounded-full animate-bounce-gentle" style={{animationDelay: '0.4s'}}></div>
+                        <span className="text-sm font-medium">Instant Analysis</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               )}
-            </div>
-          )}
-
-          {/* Processing State */}
-          {isProcessing && (
-            <div className="text-center py-12">
-              <LoadingSpinner />
-              <h2 className="text-xl font-semibold text-ahs-blue mt-4 mb-2">
-                Analyzing Your Lab Report
-              </h2>
-              <p className="text-gray-600">
-                Please wait while we extract and analyze your test results...
-              </p>
-              {uploadedFile && (
-                <p className="text-sm text-gray-500 mt-2">
-                  Processing: {uploadedFile.name}
-                </p>
-              )}
-            </div>
+              
+              {/* Upload Section */}
+              <div className="mb-12">
+                <FileUpload onFileUpload={handleFileUpload} isProcessing={isProcessing} />
+                
+                {error && !isProcessing && (
+                  <div className="mt-8 max-w-2xl mx-auto">
+                    <ErrorMessage message={error} onDismiss={() => setError(null)} />
+                  </div>
+                )}
+              </div>
+            </>
           )}
 
           {/* Results Section */}
           {labResults && !isProcessing && (
             <div className="animate-slide-up">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-ahs-blue">
-                  Lab Report Analysis
-                </h2>
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-8 space-y-4 sm:space-y-0">
+                <div>
+                  <h2 className="heading-secondary mb-2">
+                    Lab Report Analysis
+                  </h2>
+                  <p className="text-muted">
+                    Complete analysis of your health markers and recommendations
+                  </p>
+                </div>
                 <button
                   onClick={handleReset}
                   className="btn-secondary"
@@ -105,29 +115,46 @@ function App() {
 
           {/* Error State */}
           {error && !isProcessing && !labResults && (
-            <div className="text-center py-8">
-              <ErrorMessage message={error} onDismiss={() => setError(null)} />
-              <button
-                onClick={handleReset}
-                className="btn-primary mt-4"
-              >
-                Try Again
-              </button>
+            <div className="text-center py-12 max-w-2xl mx-auto">
+              <div className="card-elevated">
+                <ErrorMessage message={error} onDismiss={() => setError(null)} />
+                <button
+                  onClick={handleReset}
+                  className="btn-primary mt-6"
+                >
+                  Try Again
+                </button>
+              </div>
             </div>
           )}
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-ahs-blue text-white py-6 mt-12">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-sm">
-            &copy; 2024 Alberta Health Services. This tool is for informational purposes only. 
-            Always consult with your healthcare provider for medical advice.
-          </p>
-          <p className="text-xs mt-2 text-blue-200">
-            Your privacy is protected. No data is stored or transmitted beyond this session.
-          </p>
+      {/* Enhanced Footer */}
+      <footer className="bg-gradient-to-r from-ahs-blue to-ahs-light-blue text-white py-8 mt-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <div className="max-w-4xl mx-auto">
+              <p className="text-blue-100 mb-4 leading-relaxed">
+                &copy; 2024 LabLens. This tool is for informational purposes only and specializes in AHS lab reports. 
+                Always consult with your healthcare provider for medical advice and treatment decisions.
+              </p>
+              <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm text-blue-200">
+                <span className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-medical-green rounded-full"></div>
+                  <span>No data stored or transmitted</span>
+                </span>
+                <span className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-medical-green rounded-full"></div>
+                  <span>HIPAA compliant processing</span>
+                </span>
+                <span className="flex items-center space-x-2">
+                  <div className="w-2 h-2 bg-medical-green rounded-full"></div>
+                  <span>Local analysis only</span>
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
     </div>

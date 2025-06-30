@@ -1,7 +1,7 @@
 {
-  "name": "ahs-lab-analyzer-server",
+  "name": "lablens-server",
   "version": "1.0.0",
-  "description": "Backend API for AHS Lab Report Analyzer",
+  "description": "Backend API for LabLens - AHS Lab Report Analyzer",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -15,7 +15,7 @@
     "express",
     "ocr"
   ],
-  "author": "AHS Development Team",
+  "author": "LabLens Development Team",
   "license": "MIT",
   "dependencies": {
     "express": "^4.18.2",

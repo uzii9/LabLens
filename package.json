@@ -1,7 +1,7 @@
 {
-  "name": "ahs-lab-report-analyzer",
+  "name": "lablens",
   "version": "1.0.0",
-  "description": "Professional-grade lab report analyzer for Alberta Health Services",
+  "description": "Professional-grade lab report analyzer specialized for AHS reports",
   "main": "index.js",
   "scripts": {
     "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
@@ -18,10 +18,11 @@
     "healthcare",
     "lab-reports",
     "ocr",
+    "lablens",
     "ahs",
     "medical-analysis"
   ],
-  "author": "AHS Development Team",
+  "author": "LabLens Development Team",
   "license": "MIT",
   "devDependencies": {
     "concurrently": "^8.2.2"

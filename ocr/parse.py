@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-AHS Lab Report OCR Parser
+LabLens - AHS Lab Report OCR Parser
 
 This script extracts text from AHS lab report PDFs using OCR technology.
 It's designed specifically for Alberta Health Services lab report formats.
@@ -11,7 +11,7 @@ Requirements:
 - pdf2image (with poppler) OR PyMuPDF (fitz) as fallback
 - tesseract-ocr (system dependency)
 
-Author: AHS Development Team
+Author: LabLens Development Team
 Version: 1.0.0
 """
 
@@ -58,7 +58,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-class AHSLabReportParser:
+class LabLensParser:
     """
     Parser for AHS lab reports using OCR technology
     """
@@ -463,7 +463,7 @@ def main():
             raise FileNotFoundError(f"PDF file not found: {pdf_path}")
         
         # Initialize parser
-        parser = AHSLabReportParser()
+        parser = LabLensParser()
         
         # Extract text from PDF
         ocr_result = parser.extract_text_from_pdf(pdf_path)

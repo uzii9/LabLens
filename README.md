@@ -1,12 +1,12 @@
-# AHS Lab Report Analyzer
+# LabLens
 
-🏥 **Professional-grade lab report analysis tool for Alberta Health Services**
+🔬 **Professional-grade lab report analysis tool specialized for AHS lab reports**
 
 A full-stack web application that uses OCR technology to extract and analyze lab test results from AHS PDF reports, providing patient-friendly explanations and visual indicators for each test.
 
 ## 🎯 Project Overview
 
-This application was built specifically for Alberta Health Services (AHS) to help patients better understand their lab reports. It processes MyHealth Records lab report PDFs and provides:
+This application specializes in processing Alberta Health Services (AHS) lab reports to help patients better understand their results. It processes MyHealth Records lab report PDFs and provides:
 
 - **OCR text extraction** from lab report PDFs
 - **Intelligent parsing** of test results, values, and reference ranges
@@ -66,7 +66,7 @@ This application was built specifically for Alberta Health Services (AHS) to hel
 ## 📁 Project Structure
 
 ```
-ahs-lab-analyzer/
+lablens/
 ├── client/                    # React frontend
 │   ├── src/
 │   │   ├── components/       # React components
@@ -138,8 +138,8 @@ sudo apt install libtesseract-dev
 
 1. **Clone the repository:**
 ```bash
-git clone https://github.com/your-org/ahs-lab-analyzer.git
-cd ahs-lab-analyzer
+git clone https://github.com/your-org/lablens.git
+cd lablens
 ```
 
 2. **Install all dependencies:**
@@ -258,7 +258,7 @@ python parse.py /path/to/test-report.pdf
    ```yaml
    services:
      - type: web
-       name: ahs-lab-analyzer-api
+       name: lablens-api
        env: node
        buildCommand: |
          apt-get update
@@ -309,8 +309,8 @@ CMD ["npm", "start"]
 
 Build and run:
 ```bash
-docker build -t ahs-lab-analyzer .
-docker run -p 5000:5000 ahs-lab-analyzer
+docker build -t lablens .
+docker run -p 5000:5000 lablens
 ```
 
 ### Option 3: Traditional Server Deployment
@@ -322,8 +322,8 @@ curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt-get install -y nodejs python3 python3-pip tesseract-ocr
 
 # Clone and setup the application
-git clone https://github.com/your-org/ahs-lab-analyzer.git
-cd ahs-lab-analyzer
+git clone https://github.com/your-org/lablens.git
+cd lablens
 npm run install:all
 cd ocr && pip3 install -r requirements.txt
 cd ..
@@ -337,7 +337,7 @@ npm run build
 3. **Configure process manager (PM2):**
 ```bash
 npm install -g pm2
-pm2 start server/index.js --name "ahs-lab-analyzer"
+pm2 start server/index.js --name "lablens"
 pm2 startup
 pm2 save
 ```
@@ -350,7 +350,7 @@ server {
 
     # Serve static files
     location / {
-        root /path/to/ahs-lab-analyzer/client/dist;
+        root /path/to/lablens/client/dist;
         try_files $uri $uri/ /index.html;
     }
 
@@ -372,7 +372,7 @@ server {
 }
 ```
 
-## 🏥 AHS-Specific Features
+## 🏥 AHS Lab Report Features
 
 ### Lab Test Panels Supported
 
@@ -546,6 +546,6 @@ This tool is for informational purposes only and should not replace professional
 
 ---
 
-**Built with ❤️ for Alberta Health Services**
+**Built with ❤️ for AHS lab report analysis**
 
-For technical support or questions about this implementation, please contact the AHS Digital Health team. 
+For technical support or questions about this implementation, please contact the LabLens development team. 
