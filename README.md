@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # LabLens
 
 🔬 **Professional-grade lab report analysis tool specialized for AHS lab reports**
@@ -549,3 +550,6 @@ This tool is for informational purposes only and should not replace professional
 **Built with ❤️ for AHS lab report analysis**
 
 For technical support or questions about this implementation, please contact the LabLens development team. 
+=======
+mvp..
+>>>>>>> d6feb35a484ee7ceee17da030a56031110d7ec4e
