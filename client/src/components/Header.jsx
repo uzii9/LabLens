@@ -35,7 +35,7 @@ const Header = () => {
               <Shield className="w-5 h-5 text-medical-green" />
               <div className="flex flex-col">
                 <span className="text-sm font-semibold text-gray-800">Privacy Protected</span>
-                <span className="text-xs text-gray-600">HIPAA Compliant</span>
+                <span className="text-xs text-gray-600">HIA Compliant</span>
               </div>
             </div>
             

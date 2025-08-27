@@ -136,7 +136,7 @@ function App() {
           <div className="text-center">
             <div className="max-w-4xl mx-auto">
               <p className="text-blue-100 mb-4 leading-relaxed">
-                &copy; 2024 LabLens. This tool is for informational purposes only and specializes in AHS lab reports. 
+                &copy; 2025 LabLens. This tool is for informational purposes only and specializes in AHS lab reports. 
                 Always consult with your healthcare provider for medical advice and treatment decisions.
               </p>
               <div className="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm text-blue-200">
@@ -146,7 +146,7 @@ function App() {
                 </span>
                 <span className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-medical-green rounded-full"></div>
-                  <span>HIPAA compliant processing</span>
+                  <span>HIA compliant processing</span>
                 </span>
                 <span className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-medical-green rounded-full"></div>

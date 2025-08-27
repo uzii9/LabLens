@@ -324,7 +324,7 @@ const FileUpload = ({ onFileUpload, isProcessing }) => {
                     </li>
                     <li className="flex items-start space-x-2">
                       <Shield className="w-4 h-4 text-medical-green mt-0.5 flex-shrink-0" />
-                      <span>HIPAA compliant secure handling</span>
+                      <span>HIA compliant secure handling</span>
                     </li>
                     <li className="flex items-start space-x-2">
                       <Shield className="w-4 h-4 text-medical-green mt-0.5 flex-shrink-0" />

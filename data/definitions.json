@@ -120,8 +120,8 @@
           "name": "Iron Saturation Index",
           "unit": "%",
           "referenceRange": {
-            "min": 20,
-            "max": 50
+            "min": 0.12,
+            "max": 0.60
           },
           "explanation": "Shows what percentage of your iron-binding capacity is being used. Low levels suggest iron deficiency.",
           "category": "iron_metabolism"
