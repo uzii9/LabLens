@@ -1,4 +1,4 @@
-# Blood Test Analyzer
+# LabLens
 
 Professional-grade lab report analyzer for AHS reports with OCR capabilities.
 
