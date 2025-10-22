@@ -1,0 +1,24 @@
+services:
+  # Web Service (Backend + Frontend)
+  - type: web
+    name: lablens
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: |
+      # Install Python dependencies
+      pip install -r ocr/requirements.txt
+      # Install Node dependencies
+      npm run install:all
+      # Build frontend
+      npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: PYTHON_VERSION
+        value: 3.11
+    healthCheckPath: /api/health
+
