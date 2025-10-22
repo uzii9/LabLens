@@ -6,14 +6,15 @@ services:
     region: oregon
     plan: free
     buildCommand: |
-      # Install system dependencies
-      apt-get update && apt-get install -y tesseract-ocr poppler-utils
       # Install Python dependencies
       pip install -r ocr/requirements.txt
-      # Install Node.js dependencies
-      npm run install:all
+      # Install Node.js dependencies (including dev dependencies for build)
+      npm install && cd client && npm install && cd ../server && npm install
       # Build frontend
       npm run build
+    packages:
+      - tesseract-ocr
+      - poppler-utils
     startCommand: npm start
     envVars:
       - key: NODE_ENV
