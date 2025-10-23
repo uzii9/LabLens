@@ -167,7 +167,7 @@ async function callOCRService(filePath, fileName) {
     const { spawn } = require('child_process')
     
     return new Promise((resolve, reject) => {
-      const python = spawn('python', [pythonScript, filePath])
+      const python = spawn('python3', [pythonScript, filePath])
       let output = ''
       let errorOutput = ''
 
@@ -181,14 +181,21 @@ async function callOCRService(filePath, fileName) {
 
       python.on('close', (code) => {
         if (code !== 0) {
-          console.error('Python OCR error:', errorOutput)
-          reject(new Error(`OCR processing failed: ${errorOutput}`))
+          console.error('Python OCR error (exit code:', code, '):', errorOutput)
+          console.error('Python stdout:', output)
+          reject(new Error(`OCR processing failed: ${errorOutput || 'Unknown error'}`))
         } else {
           try {
             const result = JSON.parse(output)
-            resolve(result)
+            if (!result.success) {
+              console.error('OCR failed:', result.error)
+              reject(new Error(`OCR: ${result.error || 'Unknown error'}`))
+            } else {
+              resolve(result)
+            }
           } catch (parseError) {
             console.error('Failed to parse OCR output:', parseError)
+            console.error('Raw output:', output)
             reject(new Error('OCR service returned invalid response'))
           }
         }
