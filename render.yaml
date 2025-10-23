@@ -2,27 +2,13 @@ services:
   # Web Service (Backend + Frontend)
   - type: web
     name: lablens
-    env: python
+    env: docker
     region: oregon
     plan: free
-    buildCommand: |
-      # Install Python dependencies
-      pip install -r ocr/requirements.txt
-      # Install all Node.js dependencies including devDependencies
-      npm install --production=false
-      cd client && npm install --production=false
-      cd ../server && npm install --production=false
-      cd ..
-      # Build frontend
-      npm run build
-    packages:
-      - tesseract-ocr
-      - poppler-utils
-    startCommand: NODE_ENV=production npm start
     envVars:
       - key: PORT
         value: 5000
-      - key: PYTHONUNBUFFERED
-        value: 1
+      - key: NODE_ENV
+        value: production
     healthCheckPath: /api/health
 
