@@ -21,6 +21,7 @@ import re
 import os
 import tempfile
 import logging
+import gc
 from typing import Dict, List, Optional, Tuple
 from pathlib import Path
 import io
@@ -111,11 +112,14 @@ class LabLensParser:
             doc = fitz.open(pdf_path)
             images = []
             
-            for page_num in range(min(len(doc), 10)):  # Limit to 10 pages
+            # Limit pages for memory efficiency (max 5 pages on free tier)
+            max_pages = min(len(doc), 5)
+            
+            for page_num in range(max_pages):
                 page = doc.load_page(page_num)
                 
-                # Get page as image
-                mat = fitz.Matrix(2.0, 2.0)  # 2x zoom for better quality
+                # Get page as image with lower resolution to save memory
+                mat = fitz.Matrix(1.5, 1.5)  # Reduced from 2.0 for memory
                 pix = page.get_pixmap(matrix=mat)
                 
                 # Convert to PIL Image
@@ -241,6 +245,10 @@ class LabLensParser:
                 total_confidence += page_confidence
                 
                 logger.info(f"Page {i + 1} processed - Confidence: {page_confidence:.1f}%")
+                
+                # Free memory after each page
+                del processed_image, text_data, page_text, confidences
+                gc.collect()
             
             # Combine all text
             full_text = '\n\n'.join(page['text'] for page in extracted_pages)
@@ -279,7 +287,7 @@ class LabLensParser:
 
     def _preprocess_image(self, image: Image.Image) -> Image.Image:
         """
-        Preprocess image for better OCR accuracy
+        Preprocess image for better OCR accuracy (memory-optimized)
         
         Args:
             image (PIL.Image): Input image
@@ -292,20 +300,17 @@ class LabLensParser:
             if image.mode != 'L':
                 image = image.convert('L')
             
-            # Enhance contrast and sharpness
-            from PIL import ImageEnhance, ImageFilter
+            # Enhance contrast only (skip sharpening to save memory)
+            from PIL import ImageEnhance
             
             # Increase contrast
             enhancer = ImageEnhance.Contrast(image)
-            image = enhancer.enhance(1.5)
+            image = enhancer.enhance(1.3)
             
-            # Sharpen image
-            image = image.filter(ImageFilter.SHARPEN)
-            
-            # Scale up for better OCR (if image is small)
+            # Only scale if really needed (reduced threshold)
             width, height = image.size
-            if width < 1200 or height < 1600:
-                scale_factor = max(1200 / width, 1600 / height)
+            if width < 800 or height < 1000:
+                scale_factor = max(800 / width, 1000 / height)
                 new_size = (int(width * scale_factor), int(height * scale_factor))
                 image = image.resize(new_size, Image.Resampling.LANCZOS)
             

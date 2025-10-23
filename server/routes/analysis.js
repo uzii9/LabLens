@@ -170,6 +170,16 @@ async function callOCRService(filePath, fileName) {
       const python = spawn('python3', [pythonScript, filePath])
       let output = ''
       let errorOutput = ''
+      let isResolved = false
+
+      // Add timeout (60 seconds for OCR processing)
+      const timeout = setTimeout(() => {
+        if (!isResolved) {
+          isResolved = true
+          python.kill('SIGTERM')
+          reject(new Error('OCR processing timeout - file may be too large or complex'))
+        }
+      }, 60000)
 
       python.stdout.on('data', (data) => {
         output += data.toString()
@@ -180,6 +190,10 @@ async function callOCRService(filePath, fileName) {
       })
 
       python.on('close', (code) => {
+        clearTimeout(timeout)
+        if (isResolved) return // Already timed out
+        isResolved = true
+
         if (code !== 0) {
           console.error('Python OCR error (exit code:', code, '):', errorOutput)
           console.error('Python stdout:', output)
@@ -202,6 +216,9 @@ async function callOCRService(filePath, fileName) {
       })
 
       python.on('error', (error) => {
+        clearTimeout(timeout)
+        if (isResolved) return
+        isResolved = true
         console.error('Failed to start Python process:', error)
         reject(new Error('OCR service unavailable'))
       })
